@@ -1,31 +1,42 @@
 # Profit Pulse - Trading Performance Tracker
 
-A Python application that tracks trading performance by importing trades from CSV to Airtable and generating detailed performance reports.
+A web application that tracks trading performance by importing trades from CSV to Airtable and generating detailed performance reports.
 
 ## Features
 
 - 📊 Import trades from CSV to Airtable
 - 📈 Calculate performance metrics (win rate, profit factor, etc.)
 - 💰 Generate beautiful performance reports
-- 🔄 Easy configuration for different Airtable bases
+- 🌐 Web-based interface (no installation required)
 
-## Setup
+## Live Demo
 
-1. Clone or download this project
-2. Install requirements: `pip install -r requirements.txt`
-3. Configure your Airtable details in `config/settings.py`
-4. Place your trades CSV file in the `data` folder
-5. Run the application: `python src/main.py`
+Try the live app: [https://your-app-name.streamlit.app/](https://your-app-name.streamlit.app/)
+
+## How to Use
+
+1. Prepare a CSV file with your trading data
+2. Upload the CSV file to the web app
+3. Click "Upload to Airtable" to import your trades
+4. Click "Analyze Trades" to generate a performance report
 
 ## CSV Format
 
 Your CSV file should have these columns:
-- Asset (e.g., AAPL, TSLA)
+- Asset (e.g., AAPL, EUR/USD)
 - Date (YYYY-MM-DD)
 - Entry_Price (number)
 - Exit_Price (number)
 - Quantity (number)
+- Type (Long or Short, optional)
 
-## Support
+## Technology Stack
 
-For issues or questions, please check the configuration settings or create an issue in the GitHub repository.
+- Python
+- Streamlit
+- Airtable API
+- Pandas
+
+## License
+
+MIT License - feel free to use this project for your own purposes!
