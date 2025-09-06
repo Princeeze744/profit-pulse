@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profit Pulse - Trading Performance Tracker</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+            background-color: #f4f7f9;
+            color: #333;
+        }
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+        }
+        h1 {
+            color: #2c3e50;
+            text-align: center;
+            margin-bottom: 10px;
+            font-size: 2.5rem;
+        }
+        .subtitle {
+            text-align: center;
+            color: #7f8c8d;
+            margin-bottom: 30px;
+            font-size: 1.2rem;
+        }
+        .upload-form {
+            margin: 25px 0;
+            padding: 25px;
+            background: #f8f9fa;
+            border-radius: 8px;
+            border-left: 4px solid #3498db;
+        }
+        .metrics {
+            margin: 25px 0;
+            padding: 25px;
+            background: #eaf7ee;
+            border-radius: 8px;
+            border-left: 4px solid #2ecc71;
+        }
+        .metrics h2 {
+            color: #27ae60;
+            margin-top: 0;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            background: white;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+        }
+        table, th, td {
+            border: 1px solid #e0e0e0;
+        }
+        th, td {
+            padding: 15px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f7fb;
+            color: #2c3e50;
+            font-weight: 600;
+        }
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+        .btn {
+            display: inline-block;
+            background: #3498db;
+            color: white;
+            padding: 12px 24px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            text-decoration: none;
+            font-weight: 600;
+            transition: background 0.3s ease;
+            margin: 5px;
+        }
+        .btn:hover {
+            background: #2980b9;
+        }
+        .btn-success {
+            background: #27ae60;
+        }
+        .btn-success:hover {
+            background: #219653;
+        }
+        .btn-secondary {
+            background: #7f8c8d;
+        }
+        .btn-secondary:hover {
+            background: #636e72;
+        }
+        .alert {
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 5px;
+            font-weight: 500;
+        }
+        .alert-success {
+            background-color: #d4edda;
+            color: #155724;
+            border: 1px solid #c3e6cb;
+        }
+        .alert-error {
+            background-color: #f8d7da;
+            color: #721c24;
+            border: 1px solid #f5c6cb;
+        }
+        .instructions {
+            background: #fffbf0;
+            padding: 20px;
+            border-radius: 8px;
+            border-left: 4px solid #f39c12;
+            margin: 25px 0;
+        }
+        .instructions h3 {
+            color: #e67e22;
+            margin-top: 0;
+        }
+        pre {
+            background: #2d3436;
+            color: #dfe6e9;
+            padding: 15px;
+            border-radius: 5px;
+            overflow-x: auto;
+        }
+        .sample-section {
+            margin: 20px 0;
+            padding: 20px;
+            background: #e8f4fd;
+            border-radius: 8px;
+            border-left: 4px solid #3498db;
+        }
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin: 30px 0;
+        }
+        .feature {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.08);
+            text-align: center;
+        }
+        .feature-icon {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+        }
+        footer {
+            text-align: center;
+            margin-top: 40px;
+            color: #7f8c8d;
+            font-size: 0.9rem;
+        }
+        input[type="file"] {
+            margin-bottom: 15px;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>📊 Profit Pulse</h1>
+        <p class="subtitle">Advanced Trading Performance Tracker</p>
+        
+        <!-- Flash messages -->
+        {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+                {% for category, message in messages %}
+                    <div class="alert alert-{{ category }}">{{ message }}</div>
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
+        
+        <!-- Feature highlights -->
+        <div class="feature-grid">
+            <div class="feature">
+                <div class="feature-icon">📈</div>
+                <h3>Performance Analytics</h3>
+                <p>Track win rate, profit factor, and other key metrics</p>
+            </div>
+            <div class="feature">
+                <div class="feature-icon">💾</div>
+                <h3>Airtable Integration</h3>
+                <p>All your data securely stored in Airtable</p>
+            </div>
+            <div class="feature">
+                <div class="feature-icon">📤</div>
+                <h3>Easy CSV Import</h3>
+                <p>Upload your trading history with one click</p>
+            </div>
+        </div>
+        
+        <!-- Upload form -->
+        <div class="upload-form">
+            <h2>Upload Your Trades</h2>
+            <p>Upload a CSV file with your trading data to analyze your performance.</p>
+            
+            <form action="/upload" method="post" enctype="multipart/form-data">
+                <input type="file" name="file" accept=".csv" required>
+                <button type="submit" class="btn btn-success">Upload and Analyze</button>
+            </form>
+            
+            <p style="margin-top: 20px;">Or analyze your existing trades in Airtable:</p>
+            <a href="/analyze" class="btn">Analyze Existing Trades</a>
+        </div>
+        
+        <!-- Sample download section -->
+        <div class="sample-section">
+            <h3>Need a Sample CSV File?</h3>
+            <p>Download our trading template to get started:</p>
+            <a href="/sample" class="btn btn-secondary">Download Sample CSV</a>
+        </div>
+        
+        <!-- Display metrics if available -->
+        {% if metrics %}
+        <div class="metrics">
+            <h2>📈 Performance Report</h2>
+            <p><strong>Analysis Date:</strong> {{ metrics.analysis_date }}</p>
+            
+            <table>
+                <tr>
+                    <th>Metric</th>
+                    <th>Value</th>
+                </tr>
+                <tr>
+                    <td>Total Trades</td>
+                    <td>{{ metrics.total_trades }}</td>
+                </tr>
+                <tr>
+                    <td>Winning Trades</td>
+                    <td>{{ metrics.winning_trades }}</td>
+                </tr>
+                <tr>
+                    <td>Losing Trades</td>
+                    <td>{{ metrics.losing_trades }}</td>
+                </tr>
+                <tr>
+                    <td>Win Rate</td>
+                    <td>{{ metrics.win_rate }}%</td>
+                </tr>
+                <tr>
+                    <td>Total Profit</td>
+                    <td>${{ metrics.total_profit }}</td>
+                </tr>
+                <tr>
+                    <td>Average Profit</td>
+                    <td>${{ metrics.average_profit }}</td>
+                </tr>
+                <tr>
+                    <td>Profit Factor</td>
+                    <td>{{ metrics.profit_factor }}</td>
+                </tr>
+                <tr>
+                    <td>Total Wins</td>
+                    <td>${{ metrics.total_win }}</td>
+                </tr>
+                <tr>
+                    <td>Total Losses</td>
+                    <td>${{ metrics.total_loss }}</td>
+                </tr>
+            </table>
+        </div>
+        {% endif %}
+        
+        <!-- Instructions -->
+        <div class="instructions">
+            <h3>📋 How to Use Profit Pulse</h3>
+            <ol>
+                <li>Prepare a CSV file with your trading data (see format below)</li>
+                <li>Click "Choose File" and select your CSV file</li>
+                <li>Click "Upload and Analyze" to process your trades</li>
+                <li>View your performance metrics in the report section</li>
+                <li>Use the "Analyze Existing Trades" button to analyze data already in Airtable</li>
+            </ol>
+            
+            <h3>📝 CSV Format Requirements</h3>
+            <p>Your CSV file must have these columns (in any order):</p>
+            <ul>
+                <li><strong>Asset</strong> - The traded instrument (e.g., AAPL, EUR/USD, BTC)</li>
+                <li><strong>Date</strong> - Trade date in YYYY-MM-DD format</li>
+                <li><strong>Entry_Price</strong> - Price when you entered the trade</li>
+                <li><strong>Exit_Price</strong> - Price when you exited the trade</li>
+                <li><strong>Quantity</strong> - Trade size/volume</li>
+                <li><strong>Type</strong> - Long or Short (optional, defaults to Long)</li>
+            </ul>
+            
+            <h3>💱 Forex Trading Example</h3>
+            <p>For currency pairs, use standard notation and appropriate decimal places:</p>
+            <pre>
+Asset,Date,Entry_Price,Exit_Price,Quantity,Type
+EUR/USD,2023-10-01,1.1580,1.1620,10000,Long
+GBP/USD,2023-10-02,1.3150,1.3100,15000,Short
+USD/JPY,2023-10-03,110.50,111.20,20000,Long</pre>
+            
+            <h3>📊 Stock Trading Example</h3>
+            <pre>
+Asset,Date,Entry_Price,Exit_Price,Quantity,Type
+AAPL,2023-10-01,170.50,175.25,100,Long
+TSLA,2023-10-02,250.75,245.50,50,Short
+MSFT,2023-10-03,330.25,325.75,75,Long</pre>
+        </div>
+        
+        <footer>
+            <p>Profit Pulse - Built with Python, Flask, and Airtable | © 2023</p>
+        </footer>
+    </div>
+</body>
+</html>
