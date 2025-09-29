@@ -1,0 +1,60 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+env/
+venv/
+.env
+.env.*
+.venv/
+*.venv
+
+# Byte-compiled / optimized / DLL files
+*.so
+*.egg
+*.egg-info/
+
+# Distribution / packaging
+build/
+dist/
+*.egg-info/
+
+# Database files
+*.db
+*.sqlite3
+
+# Logs
+*.log
+
+# macOS
+.DS_Store
+
+# VS Code
+.vscode/
+
+# PyInstaller
+*.manifest
+*.spec
+
+# Local settings
+secrets.json
+
+# Streamlit cache
+.streamlit/
+
+# Backup directories
+backups/
+
+# OS files
+Thumbs.db
+
+# Others
+*.pem
+*.key
+
+# Ignore IDE-specific
+.idea/
+
+# Node modules (if ever used)
+node_modules/

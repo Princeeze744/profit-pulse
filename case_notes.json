@@ -1,0 +1,36 @@
+[
+  {
+    "id": "fe7ecab7-91fa-4b19-aa96-744e75aadcbb",
+    "case_id": "LAW-1758989927-N42U7R",
+    "timestamp": "2025-09-27T12:18:47.797096",
+    "author": "System",
+    "content": "Case intake completed. AI complexity score: 75/100",
+    "type": "general"
+  },
+  {
+    "id": "4cdb9d68-7719-49a8-8bfe-8c83134bf2dd",
+    "case_id": "LAW-1759008025-2549JI",
+    "timestamp": "2025-09-27T17:20:25.301361",
+    "author": "System",
+    "content": "Case intake completed. AI complexity score: 85/100",
+    "type": "general"
+  },
+  {
+    "id": "7488e661-feeb-421b-8229-5add65eb58ec",
+    "case_id": "LAW-1759008025-2549JI",
+    "timestamp": "2025-09-29T07:00:45.912913",
+    "author": "System",
+    "content": "Status changed from Intake to Review",
+    "type": "general",
+    "case_status_at_time": "Review"
+  },
+  {
+    "id": "ef52d91c-b685-42ad-bb20-214f16019ba1",
+    "case_id": "CASE-1758983705-UW2U",
+    "timestamp": "2025-09-29T07:11:40.461507",
+    "author": "System",
+    "content": "Status changed from Intake to Accepted",
+    "type": "general",
+    "case_status_at_time": "Accepted"
+  }
+]
